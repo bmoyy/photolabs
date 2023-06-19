@@ -2,12 +2,19 @@ import React from 'react';
 
 import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
-import photos from '../mocks/photos';
 
 const PhotoList = (props) => {
 
-  const photoList =photos.map((photo) => (
-  <PhotoListItem favPhotoIds={props.favPhotoIds} toggleFavLiked={props.toggleFavLiked} {...photo} key={photo.id}/>
+  const photoList =props.photos.map((photo) => (
+  <PhotoListItem 
+  favPhotoIds={props.favPhotoIds} 
+  toggleFavLiked={props.toggleFavLiked}
+  showModal={props.showModal} 
+  setshowModal={props.setshowModal} 
+  modalData={props.modalData}
+  setmodalData={props.setmodalData}
+  {...photo} 
+  key={photo.id}/>
   ));
 
   return (
