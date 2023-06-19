@@ -46,24 +46,22 @@ const useApplicationData = () => {
     }
   }
 
-  const [favPhotosID, updateToFavPhotosIDs] = useReducer(reducer, []);
+  const [favPhotoIds, toggleFavPhotoIds] = useReducer(reducer, []);
   const [photoSelected, choosePhotoSelected] = useReducer(reducer, {});
   const [openModal, toggleModal] = useReducer(reducer, false); 
 
 
   const state = {
     photoSelected,
-    showModal,
+    openModal,
     favPhotoIds,
-    modalData,
   };
 
   return {
     state,
     choosePhotoSelected,
-    toggleFavLiked,
-    setshowModal,
-    setmodalData
+    toggleFavPhotoIds,
+    toggleModal,
   };
 };
 
