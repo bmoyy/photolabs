@@ -1,24 +1,6 @@
-import { React, useState } from "react";
+import { React, useReducer } from "react";
 
 const useApplicationData = () => {
-
-  // const [favPhotoIds,setfavPhotoIds] = useState([]);
-
-
-  // const [showModal, setshowModal] = useState(false);
-  // const [modalData, setmodalData] = useState({});
-
-
-  // const toggleFavLiked = (photoid) => {
-  //   const photoIdIndex = favPhotoIds.indexOf(photoid);
-  //   if (photoIdIndex === -1) {
-  //     setfavPhotoIds([...favPhotoIds, photoid])
-  //   } else {
-  //     const removedFavPhotoIds = [...favPhotoIds];
-  //     removedFavPhotoIds.splice(photoIdIndex,1);
-  //     setfavPhotoIds(removedFavPhotoIds);
-  //   }
-  // }
 
   const ACTIONS = {
     FAV_PHOTO_TOGGLE: 'FAV_PHOTO_TOGGLE',
@@ -52,6 +34,7 @@ const useApplicationData = () => {
 
 
   const state = {
+    ACTIONS,
     photoSelected,
     openModal,
     favPhotoIds,
