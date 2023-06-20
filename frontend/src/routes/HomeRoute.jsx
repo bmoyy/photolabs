@@ -1,14 +1,13 @@
 import {React} from 'react';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
-import photos from '../mocks/photos';
 
 const HomeRoute = (props) => {
   return (
     <div className="home-route">
-      <TopNavigation favPhotoIds={props.favPhotoIds}/>
+      <TopNavigation favPhotoIds={props.favPhotoIds} topics={props.topics} photos={props.photos} setPhotos={props.setPhotos}/>
       <PhotoList 
-      photos={photos}
+      photos={props.photos}
       actions={props.actions}
       favPhotoIds={props.favPhotoIds}
       toggleFavPhotoIds={props.toggleFavPhotoIds}

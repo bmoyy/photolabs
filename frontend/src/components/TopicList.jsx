@@ -2,13 +2,12 @@ import React from 'react';
 
 import '../styles/TopicList.scss';
 import TopicListItem from './TopicListItem';
-import topics from '../mocks/topics';
 
-const TopicList = () => {
+const TopicList = (props) => {
 
-  const topicList =topics.map((topic) => (
-    <TopicListItem {...topic} key={topic.id}/>
-  ));
+  const topicList =props.topics.map((topic) => {
+   return <TopicListItem {...topic} key={topic.id} photos={props.photos} setPhotos={props.setPhotos}/>
+});
 
   return (
   <div className="top-nav-bar__topic-list">
