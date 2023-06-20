@@ -5,8 +5,8 @@ This project displays users' photos which can be filtered by topics. The user ha
 
 ## Final Product
 
-!["Screenshot of Home View"](https://github.com/bmoyy/photolabs/blob/master/docs/photolabs-homeview.png)
-!["Screenshot of Modal View"](https://github.com/bmoyy/photolabs/blob/master/docs/photolabs-homeview.png)
+!["Screenshot of Home View"](https://github.com/bmoyy/photolabs/blob/main/docs/photolabs-homeview.PNG)
+!["Screenshot of Modal View"](https://github.com/bmoyy/photolabs/blob/main/docs/photolabs-modalview.PNG)
 
 # Getting Started
 
