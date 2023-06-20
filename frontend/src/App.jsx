@@ -13,7 +13,12 @@ const App = () => {
     toggleFavPhotoIds,
     toggleModal
   } = useApplicationData();
-  
+
+  const setFav = (id) => {
+    console.log(state.favPhotoIds);
+    toggleFavPhotoIds({type: state.ACTIONS.FAV_PHOTO_TOGGLE, id: id});
+  }
+
   return (
   <div className="App">
     <HomeRoute
@@ -22,14 +27,18 @@ const App = () => {
     choosePhotoSelected={choosePhotoSelected}
     toggleFavPhotoIds={toggleFavPhotoIds}
     favPhotoIds={state.favPhotoIds}
+    setFav={setFav}
     />
-    {state.openModal && <PhotoDetailsModal 
+    {state.openModal &&
+    <PhotoDetailsModal 
     actions={state.ACTIONS}
     favPhotoIds={state.favPhotoIds}
     toggleFavPhotoIds={toggleFavPhotoIds}
     photo={state.photoSelected}
     toggleModal={toggleModal}
-    />}
+    setFav={setFav}
+    />
+    }
   </div>
   );
 }

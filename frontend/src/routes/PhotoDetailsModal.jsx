@@ -3,11 +3,12 @@ import { React } from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
+import PhotoListItem from '../components/PhotoListItem';
 
 export const PhotoDetailsModal = (props) => {
-  const { actions, photo , toggleModal, favPhotoIds, toggleFavPhotoIds } = props;
+  const { actions, photo, toggleModal, favPhotoIds, toggleFavPhotoIds, setFav } = props;
 
-  console.log(props);
+  const similarPhotos= Object.values(photo.similar_photos);
 
   return (
     <div className='photo-details-modal'>
@@ -25,15 +26,15 @@ export const PhotoDetailsModal = (props) => {
         </svg>
       </button>
       <div className='photo-details-modal__images'>
-        <PhotoFavButton/>
-        <img className='photo-details-modal__image' src={photo.image} alt="Photograph"/>
+        <PhotoFavButton setFav={()=>setFav(photo.id)} isFav={favPhotoIds.includes(photo.id)}/>
+        <img className='photo-details-modal__image' src={photo.urls.full} alt="Photograph"/>
         <h1 className='photos-details-modal__header'>Similar Photos</h1>
         <PhotoList 
         actions={actions}
         favPhotoIds={favPhotoIds}
         toggleFavPhotoIds={toggleFavPhotoIds}
-        clickFav={clickFav}
-        photos={photo.similar_photos}
+        setFav={setFav}
+        photos={similarPhotos}
         />
       </div>
     </div>

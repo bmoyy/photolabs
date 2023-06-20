@@ -14,6 +14,7 @@ const HomeRoute = (props) => {
       toggleFavPhotoIds={props.toggleFavPhotoIds}
       toggleModal={props.toggleModal}
       choosePhotoSelected={props.choosePhotoSelected}
+      setFav={props.setFav}
       />
     </div>
   )
