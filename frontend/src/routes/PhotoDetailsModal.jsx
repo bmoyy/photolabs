@@ -3,10 +3,9 @@ import { React } from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
-import PhotoListItem from '../components/PhotoListItem';
 
 export const PhotoDetailsModal = (props) => {
-  const { actions, photo, toggleModal, favPhotoIds, toggleFavPhotoIds, setFav } = props;
+  const { actions, photo, toggleModal, favPhotoIds, setFav } = props;
 
   const similarPhotos= Object.values(photo.similar_photos);
 
@@ -32,7 +31,6 @@ export const PhotoDetailsModal = (props) => {
         <PhotoList 
         actions={actions}
         favPhotoIds={favPhotoIds}
-        toggleFavPhotoIds={toggleFavPhotoIds}
         setFav={setFav}
         photos={similarPhotos}
         />

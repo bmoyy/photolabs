@@ -10,7 +10,6 @@ const HomeRoute = (props) => {
       photos={props.photos}
       actions={props.actions}
       favPhotoIds={props.favPhotoIds}
-      toggleFavPhotoIds={props.toggleFavPhotoIds}
       toggleModal={props.toggleModal}
       choosePhotoSelected={props.choosePhotoSelected}
       setFav={props.setFav}

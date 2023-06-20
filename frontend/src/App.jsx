@@ -21,7 +21,6 @@ const App = () => {
       .then(res=> setTopics(res.data))
   },[]);
 
-
   const {
     state,
     choosePhotoSelected,
@@ -42,7 +41,6 @@ const App = () => {
         topics={topics}
         toggleModal={toggleModal}
         choosePhotoSelected={choosePhotoSelected}
-        toggleFavPhotoIds={toggleFavPhotoIds}
         favPhotoIds={state.favPhotoIds}
         setFav={setFav}
       />
@@ -50,7 +48,6 @@ const App = () => {
         <PhotoDetailsModal
           actions={state.ACTIONS}
           favPhotoIds={state.favPhotoIds}
-          toggleFavPhotoIds={toggleFavPhotoIds}
           photo={state.photoSelected}
           toggleModal={toggleModal}
           setFav={setFav}
