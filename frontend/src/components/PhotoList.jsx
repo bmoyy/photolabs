@@ -3,11 +3,13 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-  const { actions, favPhotoIds, toggleModal, choosePhotoSelected,setFav } = props;
+  const { actions, favPhotoIds, openModal, toggleModal, choosePhotoSelected,setFav } = props;
 
   const clickPhoto = (id) => {
-    choosePhotoSelected({type: actions.SELECT_PHOTO, array: props.photos, id: id});
-    toggleModal({type: actions.TOGGLE_MODAL});
+    choosePhotoSelected(id,props.photos);
+    if(!openModal){
+    toggleModal();
+    }
   }
 
   const photoList = props.photos.map((photo) => (

@@ -29,7 +29,7 @@ const App = () => {
   } = useApplicationData();
 
   const setFav = (id) => {
-    toggleFavPhotoIds({ type: state.ACTIONS.FAV_PHOTO_TOGGLE, id: id });
+    toggleFavPhotoIds({ id: id });
   };
 
   return (
@@ -39,6 +39,7 @@ const App = () => {
         photos={photos}
         setPhotos={setPhotos}
         topics={topics}
+        openModal={state.openModal}
         toggleModal={toggleModal}
         choosePhotoSelected={choosePhotoSelected}
         favPhotoIds={state.favPhotoIds}
@@ -49,6 +50,8 @@ const App = () => {
           actions={state.ACTIONS}
           favPhotoIds={state.favPhotoIds}
           photo={state.photoSelected}
+          choosePhotoSelected={choosePhotoSelected}
+          openModal={state.openModal}
           toggleModal={toggleModal}
           setFav={setFav}
         />

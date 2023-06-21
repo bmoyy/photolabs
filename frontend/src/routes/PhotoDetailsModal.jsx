@@ -1,17 +1,21 @@
-import { React } from 'react';
+import { React, useEffect } from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
+import useApplicationData from '../hooks/useApplicationData';
 
 export const PhotoDetailsModal = (props) => {
-  const { actions, photo, toggleModal, favPhotoIds, setFav } = props;
+  const { actions, photo, openModal, toggleModal, favPhotoIds, setFav, choosePhotoSelected } = props;
+  const { state, setSimilarPhotos } = useApplicationData();
 
-  const similarPhotos= Object.values(photo.similar_photos);
+  useEffect(()=> {
+    setSimilarPhotos(Object.values(photo.similar_photos));
+  },[])
 
   return (
     <div className='photo-details-modal'>
-      <button className='photo-details-modal--close-button' onClick={() => toggleModal({type: actions.TOGGLE_MODAL})}>
+      <button className='photo-details-modal--close-button' onClick={() => toggleModal()}>
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_428_287)">
             <path d="M14.0625 3.9375L3.9375 14.0625" stroke="black" strokeLinecap="round" strokeLinejoin="round" />
@@ -32,7 +36,10 @@ export const PhotoDetailsModal = (props) => {
         actions={actions}
         favPhotoIds={favPhotoIds}
         setFav={setFav}
-        photos={similarPhotos}
+        photos={state.similarPhotos}
+        choosePhotoSelected={choosePhotoSelected}
+        openModal={openModal}
+        toggleModal={toggleModal}
         />
       </div>
     </div>
